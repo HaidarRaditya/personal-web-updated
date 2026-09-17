@@ -1,0 +1,444 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0f5e8;
+
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column; 
+}
+body {
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+
+.mainPage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: #181818;
+}
+.return-btn {
+
+    border: none;
+    width: fit-content;
+    transform: translateY(40px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 20px;
+    background-color: #181818;
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    font-size: 14px;
+    color: #f5eddc;
+
+    z-index: 50; 
+}
+.return-btn .arrow {
+    display: inline-block;
+    transform: rotate(90deg); 
+    font-size: 16px;
+    color: #f5eddc;
+}
+.return-btn .text {
+    color: #f5eddc;
+    font-weight: 400;
+}
+
+:root {
+    --intro-duration: 3s;
+    --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --intro-delay: 0s;
+}
+
+.scene-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; 
+
+  background-color: rgba(24, 24, 24, 0.30); 
+
+  z-index: 7;
+  pointer-events: none;
+}
+
+.page {
+    flex: 1;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    position: relative;
+
+    background-color: #181818;
+    color: #f5eddc;
+}
+.page h1 {
+    color: #f5eddc;
+    margin-bottom: 50px;
+
+    letter-spacing: 10px;
+    font-weight: 400;
+    font-size: 50px;
+
+    margin-top: 40px;
+    position: relative;
+    z-index: 9;
+
+    animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: var(--intro-delay);
+    opacity: 0;
+}
+.page p {
+    font-size: 19px;
+    word-spacing: 5px;
+    line-height: 1.8;
+
+    margin-bottom: 25px;
+    color: #f5eddc;
+
+    position: relative;
+    z-index: 9;
+
+    animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: var(--intro-delay);
+    opacity: 0;
+}
+@keyframes textIn {
+    from {
+        transform: translateY(60px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.solar-system {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+.sun-system {
+  position: absolute;
+  right: -180px;       
+  top: 43%;
+  transform: translateY(-50%);
+
+  animation: solarIn var(--intro-duration) var(--intro-ease) forwards;
+  animation-delay: 0.2s;
+  opacity: 0;
+}
+.sun {
+  width: 450px;
+  height: 860px;
+  background: #F2A93B;
+  border-radius: 50%;
+}
+.orbit {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(245,237,220,0.12);
+  border-radius: 50%;
+}
+.o1 { width: 850px; height: 850px; }
+.o2 { width: 1150px; height: 1050px; }
+.o3 { width: 1450px; height: 1250px; }
+.o4 { width: 1750px; height: 1450px; }
+.o5 { width: 2250px; height: 1650px; }
+.o6 { width: 2650px; height: 1850px; }
+.o7 { width: 3050px; height: 2050px; }
+.o8 { width: 3550px; height: 2250px; }
+
+.planet {
+  position: absolute;
+  top: 50%;
+  left: 100%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+}
+.mercury { width: 17px; height: 17px; background: #6B6B6B; transform: translate(-50%, -50%) translateX(-850px); }
+.venus   { width: 21px; height: 21px; background: #B2653B; transform: translate(-50%, -50%) translateX(-1150px); }
+.earth   { width: 25px; height: 25px; background: #5C7F71; transform: translate(-50%, -50%) translateX(-1450px);}
+.mars    { width: 19px; height: 19px; background: #802520; transform: translate(-50%, -50%) translateX(-1750px);}
+
+.jupiter {
+  width: 130px;
+  height: 130px;
+  background: #C48A4A;
+  transform: translate(-50%, -50%) translateX(-2250px);
+  z-index: -1;
+}
+.saturn {
+  width: 85px;
+  height: 85px;
+  background: #F5EDDC;
+  position: relative;
+  transform: translate(-50%, -50%) translateX(-2650px);
+}
+.saturn .ring {
+  position: absolute;
+  inset: -15px;
+  border: 7px solid rgba(245,237,220,0.6);
+  border-radius: 50%;
+}
+.uranus  { width: 50px; height: 50px; background: #7FB7B0; transform: translate(-50%, -50%) translateX(-3050px); }
+.neptune { width: 35px; height: 35px; background: #4A6FA5; transform: translate(-50%, -50%) translateX(-3550px); }
+
+@keyframes solarIn {
+  from {
+    transform: translateY(-50%) translateX(120px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(-50%) translateX(0);
+    opacity: 1;
+  }
+}
+.orbit,
+.planet {
+  animation: fadeIn var(--intro-duration) var(--intro-ease) forwards;
+}
+.sun,
+.orbit {
+  opacity: 0;
+  animation: fadeOnly var(--intro-duration) var(--intro-ease) forwards;
+}
+.sun { animation-delay: 0.2s; }
+
+.o1 { animation-delay: 0.4s; }
+.o2 { animation-delay: 0.6s; }
+.o3 { animation-delay: 0.8s; }
+.o4 { animation-delay: 1.0s; }
+.o5 { animation-delay: 1.2s; }
+.o6 { animation-delay: 1.4s; }
+.o7 { animation-delay: 1.6s; }
+.o8 { animation-delay: 1.8s; }
+
+@keyframes fadeOnly {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+:root{
+
+  --box-width: 500px;
+  --box-height: 320px;
+
+  --box-gap: 25px;
+
+  --box-radius: 8px;
+
+  --box-bg: rgba(24,24,24,0.25);
+}
+
+.box-row{
+  display: flex;
+  gap: var(--box-gap);
+
+  margin-top: 20px;
+
+  position: relative;
+  z-index: 9;
+}
+.info-box{
+
+  width: var(--box-width);
+  height: var(--box-height);
+
+  padding: 20px;
+
+  background: var(--box-bg);
+  border-radius: var(--box-radius);
+
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+.subtext {
+  font-size: 21px;   
+}
+.slider-box{
+  width: var(--box-width);
+}
+
+#website-box{
+  position: relative;
+
+  width: 450px;
+  height: 320px;
+
+  background: rgba(24,24,24,0.85);
+  overflow: hidden;
+
+  border-radius: 6px;
+  z-index: 50;
+
+  animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+  animation-delay: var(--intro-delay);
+  opacity: 0;
+}
+.slider-window {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 12;
+}
+.slider-track {
+  display: flex;
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+.slide-item {
+  min-width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  text-decoration: none;
+}
+.slide-item img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+}
+.arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 40px;
+  height: 40px;
+
+  background: rgba(0,0,0,0.35); 
+  border: none;
+  color: #f5eddc;
+
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.arrow-btn.left {
+  left: 10px;
+  transform: translateY(-50%) rotate(90deg); 
+}
+.arrow-btn.right {
+  right: 10px;
+  transform: translateY(-50%) rotate(-90deg); 
+}
+
+@media (max-width: 900px) {
+  :root {
+    --box-width: 260px;
+    --box-height: 220px;
+    --box-gap: 16px;
+  }
+
+  .page h1 { font-size: 34px; margin-top: 20px; margin-bottom: 30px; }
+  .page p  { font-size: 18px; word-spacing: 2px; }
+  .subtext { font-size: 16px; }
+
+  .box-row { flex-wrap: wrap; }
+
+  #website-box {
+    width: 100%;
+    max-width: 450px;
+    height: 260px;
+  }
+
+  .solar-system {
+    transform: scale(0.6);
+    transform-origin: right center;
+  }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --box-width: 100%;
+    --box-height: 190px;
+    --box-gap: 14px;
+  }
+
+  .return-btn { transform: translateY(20px); padding: 10px 16px; font-size: 11px; }
+  .page { padding: 20px 16px; }
+  .page h1 { font-size: 24px; letter-spacing: 5px; margin-top: 16px; margin-bottom: 24px; }
+  .page p  { font-size: 15px; line-height: 1.6; }
+  .subtext { font-size: 14px; }
+
+  .box-row { flex-wrap: wrap; gap: var(--box-gap); }
+
+  .info-box { box-sizing: border-box; }
+
+  #website-box {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    height: 220px;
+  }
+
+  .arrow-btn { width: 32px; height: 32px; font-size: 18px; }
+
+  .solar-system {
+    transform: scale(0.32);
+    transform-origin: right center;
+  }
+
+  .credit { font-size: 10px; letter-spacing: 1px; }
+  .credit img { height: 32px; width: 92px; }
+}
+
+.footer {
+  margin-top: auto;
+    width: 100%;
+    background-color: #181818;
+    text-align: center;
+    padding-bottom: 10px;
+    position: relative;
+    z-index: 11;
+}
+.credit {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #f5eddc;
+}
+.credit img {
+    height: 45px;
+    width: 130px;
+    display: block;
+    font-weight: 400;
+}
+.stripes {
+    width: 100%;
+}
+.stripe {
+    width: 100%;
+    height: 15px;
+}
+.stripe.green { background-color: #5c7f71; }
+.stripe.yellow { background-color: #ba8530; }
+.stripe.red { background-color: #802520; }

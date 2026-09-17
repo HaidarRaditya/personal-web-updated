@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" type="image/png" href="images/web head icon.png">
+</head>
+<body>
+     
+    <div class="splash">
+        <img src="intro.svg" alt="HAMHRR Intro" class="splash-image">       
+    </div>
+
+    <script>
+
+        let introTimers = [];
+
+        function playIntro() {
+
+            const splash = document.querySelector('.splash');
+            const heroEls = document.querySelectorAll('.menu, .planet, .center-line, .center-logo');
+
+            if (!splash) return;
+
+            introTimers.forEach(id => clearTimeout(id));
+            introTimers = [];
+
+            splash.style.transition = 'none';
+            splash.style.display = 'flex';
+            splash.classList.remove('fade-out');
+
+            heroEls.forEach(el => { el.style.animation = 'none'; });
+
+            void splash.offsetWidth;
+
+            splash.style.transition = '';
+            heroEls.forEach(el => { el.style.animation = ''; });
+
+            introTimers.push(setTimeout(() => {
+                splash.classList.add('fade-out');
+            }, 500));
+
+            introTimers.push(setTimeout(() => {
+                splash.style.display = 'none';
+            }, 2000));
+        }
+
+        window.addEventListener('pageshow', playIntro);
+
+    </script>
+      <div class="background-main"></div>
+    <div class="page">
+    <main class="scene">
+
+    <section class="planet">
+        <div class="planet">
+
+        <div class="layer layer-5"></div>
+        <div class="layer layer-4"></div>
+        <div class="layer layer-3"></div>
+        <div class="layer layer-2"></div>
+        <div class="layer layer-1"></div>
+
+        <div class="orbit"></div>
+
+        </div>
+    </section>
+
+    <div class="center-line">
+       <a href="credits.html">
+          <img src="images/White HAMHRR.png" alt="Link" class="center-logo">
+       </a> 
+    </div> 
+
+    </main>
+
+    <div class="scene-overlay"></div>
+
+        <nav class="menu about">
+            <a class="label-about" href="about.html">ABOUT ME</a>
+            <span class="line"></span>
+            <span class="dot"></span>
+        </nav>
+    
+        <nav class="menu skills">
+            <a class="label-skills" href="skills.html">SKILLS</a>
+            <span class="line"></span>
+            <span class="dot"></span>
+        </nav>
+    
+        <nav class="menu portfolio">
+            <a class="label-portfolio" href="portfolio.html">ACHIEVEMENTS</a>
+            <span class="line"></span>
+            <span class="dot"></span>
+        </nav>
+    
+        <nav class="menu socials">
+            <a class="label-socials" href="socials.html">SOCIALS</a>
+            <span class="line"></span>
+            <span class="dot"></span>
+        </nav>
+    
+    <footer class="footer">
+    <div class="stripes">        
+        <div class="stripe green"></div>
+        <div class="stripe yellow"></div>
+        <div class="stripe red"></div>
+    </div>
+
+        <p class="credit">
+            DESIGN INSPIRED BY
+            <span class="brand">
+                <img src="images/Lonetrail.png" alt="Lonetrail Logo">
+            </span>
+        </p>
+    </footer>
+
+    </div>
+
+</body>
+</html>
