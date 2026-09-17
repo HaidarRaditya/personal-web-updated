@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --intro-duration: 1.3s;
+    --intro-ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.page {
+    min-height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
+
+.return-btn {
+    position: fixed;
+    top: 40px;
+    left: 0px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 20px;
+    background-color: #181818;
+    border: none;
+    cursor: pointer;
+
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 3px;
+    font-size: 14px;
+    color: #f5eddc;
+
+    z-index: 50;
+}
+.return-btn .arrow {
+    display: inline-block;
+    transform: rotate(90deg);
+    font-size: 16px;
+    color: #f5eddc;
+}
+.return-btn .text {
+    color: #f5eddc;
+    font-weight: 400;
+}
+
+.background-main {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #0c0c0c;
+
+    background-image: url('images/Galleria Stellaria Area.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    z-index: 0;
+}
+
+.scene-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: rgba(24, 24, 24, 0.25);
+
+    z-index: 7;
+    pointer-events: none;
+
+    opacity: 0;
+    animation: overlayIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: 0s;
+}
+
+.vibe-section {
+    position: absolute;
+    top: 27vh;
+    left: 15vw;
+    text-align: left;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.vibe-title {
+    color: #ccccbc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 14px;
+    margin: 0;
+
+    opacity: 0;
+    animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: 0.2s;
+}
+.vibe-logos {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+.vibe-icon {
+    height: 32px;
+    width: auto;
+
+    opacity: 0;
+    animation: logoIn var(--intro-duration) var(--intro-ease) forwards;
+}
+.icon-chatgpt-neg {
+    filter: invert(100%);
+    margin-left: -13px;
+}
+
+.inspiration-section {
+    position: absolute;
+    top: 27vh;
+    right: 15vw;
+    text-align: right;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: -1000px;
+}
+.inspiration-title {
+    color: #ccccbc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-size: 14px;
+    margin: 0;
+
+    opacity: 0;
+    animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: 0.2s;
+}
+.inspiration-logos {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+.inspiration-icon {
+    height: 45px;
+    width: auto;
+
+    opacity: 0;
+    animation: logoIn var(--intro-duration) var(--intro-ease) forwards;
+}
+.inspiration-icon:nth-child(1) {
+    height: 115px;
+}
+.inspiration-icon.icon-onegiantleap {
+    border-radius: 11px;
+}
+
+.vibe-icon:nth-child(1), .inspiration-icon:nth-child(1) { animation-delay: 0.55s; }
+.vibe-icon:nth-child(2), .inspiration-icon:nth-child(2) { animation-delay: 0.7s; }
+.vibe-icon:nth-child(3), .inspiration-icon:nth-child(3) { animation-delay: 0.85s; }
+
+.thanks-section {
+    position: absolute;
+    top: 66vh;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    width: min(90%, 900px);
+    text-align: center;
+}
+.thanks-title {
+    color: #f5eddc;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 20px;
+    margin: 0 0 20px 0;
+
+    opacity: 0;
+    animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: 1.25s;
+}
+.thanks-quote {
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    opacity: 0;
+    animation: textIn var(--intro-duration) var(--intro-ease) forwards;
+    animation-delay: 1.5s;
+}
+.thanks-quote p {
+    color: #ccccbc;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.6;
+    margin: 0 0 10px 0;
+    font-style: italic;
+}
+.thanks-quote cite {
+    display: block;
+    color: #8f8f82;
+    font-style: normal;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+@keyframes textIn {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes logoIn {
+    from {
+        transform: translateY(20px) scale(0.85);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes overlayIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@media (max-width: 900px) {
+    .vibe-section { top: 12vh; left: 8vw; }
+    .inspiration-section { top: 12vh; right: 8vw; }
+    .thanks-section { top: auto; bottom: 8vh; }
+
+    .vibe-title, .inspiration-title { font-size: 12px; letter-spacing: 4px; }
+    .thanks-title { font-size: 17px; letter-spacing: 4px; }
+    .thanks-quote p { font-size: 16px; }
+
+    .vibe-icon { height: 26px; }
+    .inspiration-icon { height: 36px; }
+    .vibe-logos, .inspiration-logos { gap: 24px; }
+}
+
+@media (max-width: 640px) {
+    html, body { overflow-y: auto; }
+    .page { min-height: 100vh; height: auto; padding-bottom: 60px; }
+
+    .return-btn { top: 20px; padding: 10px 16px; font-size: 11px; }
+
+    .vibe-section, .inspiration-section {
+        position: static;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto;
+        padding-top: 40px;
+        transform: none;
+    }
+    .inspiration-section { padding-top: 30px; }
+
+    .vibe-logos, .inspiration-logos { justify-content: center; }
+
+    .thanks-section {
+        position: static;
+        transform: none;
+        width: 88%;
+        margin: 40px auto 0;
+    }
+
+    .thanks-title { font-size: 15px; letter-spacing: 3px; }
+    .thanks-quote p { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .scene-overlay,
+    .vibe-title, .vibe-icon,
+    .inspiration-title, .inspiration-icon,
+    .thanks-title, .thanks-quote {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}
